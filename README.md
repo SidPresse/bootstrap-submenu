@@ -1,4 +1,4 @@
-# [Bootstrap-submenu](http://vsn4ik.github.io/bootstrap-submenu)
+# [Bootstrap-submenu](https://vsn4ik.github.io/bootstrap-submenu/)
 
 [![Bower version](https://img.shields.io/bower/v/bootstrap-submenu.svg)](https://github.com/vsn4ik/bootstrap-submenu)
 [![npm version](https://img.shields.io/npm/v/bootstrap-submenu.svg)](https://www.npmjs.com/package/bootstrap-submenu)
@@ -11,12 +11,11 @@
 
 Several quick start options are available:
 
-- [Download the latest release](https://github.com/vsn4ik/bootstrap-submenu/releases/download/v1.2.13/bootstrap-submenu-1.2.13-dist.zip "Download Bootstrap-submenu").
-- Clone the repo: `git clone https://github.com/vsn4ik/bootstrap-submenu.git`.
-- Install with [Bower](http://bower.io): `bower install bootstrap-submenu`.
-- Install with [npm](https://www.npmjs.com): `npm install bootstrap-submenu`.
-- Install with [SPM](http://spmjs.io): `spm install bootstrap-submenu`.
-- Install with [Composer](https://getcomposer.org): `composer require vsn4ik/bootstrap-submenu "dev-master"`.
+* [Download the latest release](https://github.com/vsn4ik/bootstrap-submenu/archive/v2.0.4.zip "Download Bootstrap-submenu").
+* Clone the repo: `git clone https://github.com/vsn4ik/bootstrap-submenu.git`.
+* Install with [Bower](http://bower.io): `bower install bootstrap-submenu`.
+* Install with [npm](https://www.npmjs.com): `npm install bootstrap-submenu`.
+* Install with [Composer](https://getcomposer.org): `composer require vsn4ik/bootstrap-submenu "dev-master"`.
 
 ### What's included
 
@@ -34,25 +33,25 @@ bootstrap-submenu/
 
 ## Examples
 
-For some working examples, visit our [examples](http://vsn4ik.github.io/bootstrap-submenu/#examples) section.
+For some working examples, visit our [examples](https://vsn4ik.github.io/bootstrap-submenu/#html-examples) section.
 
 
 ## Min Requirements
 
-- Bootstrap 3.0.0
-- jQuery 1.9.1
+* Bootstrap 3.0.0
+* jQuery 1.9.1
 
 
 ## Creators
 
 **Vasily A.**
 
-- <https://github.com/vsn4ik>
+* <https://github.com/vsn4ik>
 
 
 ## Copyright and license
 
-Copyright Vasily A., 2014&ndash;2015.
+Copyright Vasily A., 2014&ndash;2016.
 
 Licensed under [the MIT License][license].
 

@@ -2,7 +2,7 @@
  * Bootstrap-submenu's Gruntfile
  * http://vsn4ik.github.io/bootstrap-submenu
  * Copyright 2014-2015 Vasily A. (https://github.com/vsn4ik)
- * Licensed under MIT (https://github.com/vsn4ik/bootstrap-submenu/blob/master/LICENSE)
+ * Licensed under the MIT license
  */
 
 'use strict';
@@ -25,9 +25,8 @@ module.exports = function(grunt) {
       core: {
         options: {
           sourceMap: true,
-          outputSourceFiles: true,
           sourceMapURL: '<%= pkg.name %>.css.map',
-          sourceMapFilename: '<%= less.core.dest %>.map'
+          outputSourceFiles: true
         },
         src: 'less/<%= pkg.name %>.less',
         dest: 'dist/css/<%= pkg.name %>.css'
@@ -73,6 +72,9 @@ module.exports = function(grunt) {
     },
     cssmin: {
       core: {
+        options: {
+          compatibility: 'ie8'
+        },
         expand: true,
         src: 'dist/css/*.css',
         ext: '.min.css'
@@ -110,8 +112,21 @@ module.exports = function(grunt) {
         src: 'docs/assets/js/'
       }
     },
+    jscs: {
+      options: {
+        config: 'js/.jscsrc'
+      },
+      core: 'js/',
+      grunt: 'Gruntfile.js',
+      docs: {
+        src: 'docs/assets/js/'
+      }
+    },
     uglify: {
       core: {
+        options: {
+          report: 'none'
+        },
         expand: true,
         src: 'dist/js/*.js',
         ext: '.min.js'
@@ -122,8 +137,8 @@ module.exports = function(grunt) {
         banner: [
           '/*!',
           ' * <%= pkg.name.charAt(0).toUpperCase() + pkg.name.slice(1) %> v<%= pkg.version %> (<%= pkg.homepage %>)',
-          ' * Copyright <%= year %> <%= pkg.author.name %> (<%= pkg.author.url %>)',
-          ' * Licensed under <%= pkg.license %> (https://github.com/<%= pkg.repository %>/blob/master/LICENSE)',
+          ' * Copyright 2014-<%= year %> <%= pkg.author.name %> (<%= pkg.author.url %>)',
+          ' * Licensed under the <%= pkg.license %> license',
           ' */'
         ].join('\n') + '\n'
       },
@@ -139,7 +154,7 @@ module.exports = function(grunt) {
         cwd: 'docs',
         src: 'index.html',
         dest: '_gh_pages/'
-      },
+      }
     },
     compress: {
       dist: {
@@ -164,6 +179,7 @@ module.exports = function(grunt) {
     'less',
     'cssmin',
     'jshint',
+    'jscs',
     'copy:core',
     'uglify',
     'usebanner'

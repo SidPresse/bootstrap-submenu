@@ -1,3 +1,5 @@
+// jscs:disable requireCamelCaseOrUpperCaseIdentifiers
+
 'use strict';
 
 $(function() {
@@ -23,9 +25,9 @@ $(function() {
     // 'html' for Mozilla Firefox, 'body' for other browsers
     $('body, html').animate({
       scrollTop: 0
-    }, 800, function() {
+    }, 800, $.proxy(function() {
       this.disabled = false;
-    }.bind(this));
+    }, this));
 
     this.blur();
   });
@@ -40,11 +42,11 @@ $(function() {
   });
 
   // Предотвращаем закрытие при клике на неактивный элемент списка
-  $('.dropdown-menu > .disabled, .dropdown-header').on('click.bs.dropdown.data-api', function(event) {
+  $('.dropdown-menu .disabled, .dropdown-header, .dropdown-divider').on('click', function(event) {
     event.stopPropagation();
   });
 
-  $('.dropdown-submenu > a').submenupicker();
+  $('[data-submenu]').submenupicker();
 
   hljs.initHighlighting();
 });
