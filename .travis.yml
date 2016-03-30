@@ -1,7 +1,19 @@
+# Use container-based architecture
 sudo: false
+
 language: node_js
-node_js: "0.12"
-before_install:
+node_js:
+  - "5"
+
+# NOTE: gulp-cli don't needed for run gulp locally on CI
+before_script:
   - npm install --global grunt-cli
+
+cache:
+  directories:
+    - node_modules
+branches:
+  only:
+    - master
 notifications:
   email: false
