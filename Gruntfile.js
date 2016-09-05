@@ -22,6 +22,9 @@ module.exports = function(grunt) {
       docs: '_gh_pages/*'
     },
     less: {
+      options: {
+        paths: ['node_modules']
+      },
       core: {
         options: {
           sourceMap: true,
@@ -30,6 +33,10 @@ module.exports = function(grunt) {
         },
         src: 'less/<%= pkg.name %>.less',
         dest: 'dist/css/<%= pkg.name %>.css'
+      },
+      docs: {
+        src: 'docs/assets/less/docs.less',
+        dest: 'docs/assets/css/docs.css'
       }
     },
     copy: {
@@ -64,8 +71,8 @@ module.exports = function(grunt) {
           dest: '_gh_pages/vendor/jquery/js'
         }, {
           expand: true,
-          cwd: 'node_modules/octicons/octicons',
-          src: '*.{css,eot,svg,ttf,woff}',
+          cwd: 'node_modules/octicons/build/font',
+          src: ['*', '!*.scss'],
           dest: '_gh_pages/vendor/octicons/css'
         }]
       }
@@ -104,10 +111,11 @@ module.exports = function(grunt) {
       grunt: 'Gruntfile.js',
       docs: {
         options: {
+          jquery: true,
+          browser: true,
           globals: {
             hljs: true
-          },
-          jquery: true
+          }
         },
         src: 'docs/assets/js/'
       }
@@ -176,7 +184,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'clean',
-    'less',
+    'less:core',
     'cssmin',
     'jshint',
     'jscs',
@@ -188,6 +196,7 @@ module.exports = function(grunt) {
   grunt.registerTask('prep-release', [
     'default',
     'ejs',
+    'less:docs',
     'copy:assets',
     'compress'
   ]);
